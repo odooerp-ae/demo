@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inquiry lines are embedded in CRM lead form, no separate views needed -->
+</odoo>

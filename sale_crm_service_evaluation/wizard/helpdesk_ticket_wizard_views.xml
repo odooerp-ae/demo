@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_helpdesk_ticket_wizard_form" model="ir.ui.view">
+        <field name="name">crm.lead.helpdesk.ticket.wizard.form</field>
+        <field name="model">crm.lead.helpdesk.ticket.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create Helpdesk Ticket">
+                <group>
+                    <field name="crm_lead_id" invisible="1"/>
+                    <field name="team_id" options="{'no_create': True}"/>
+                </group>
+                <footer>
+                    <button name="action_create_ticket" string="Create" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

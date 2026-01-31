@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_form_service_evaluation" model="ir.ui.view">
+        <field name="name">crm.lead.form.service.evaluation</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_send_survey_wizard"
+                    string="Send Survey"
+                    type="object"
+                    class="btn-primary"
+                    invisible="service_evaluation != 'satisfied'"/>
+                <button name="action_create_helpdesk_ticket_wizard"
+                    string="Create Helpdesk Ticket"
+                    type="object"
+                    class="btn-primary"
+                    invisible="service_evaluation != 'unsatisfied'"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group name="service_evaluation_group">
+                    <field name="service_evaluation" widget="radio"/>
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Surveys" name="surveys">
+                    <field name="survey_user_input_ids" nolabel="1" readonly="1">
+                        <tree>
+                            <field name="survey_id"/>
+                            <field name="state"/>
+                            <field name="create_date"/>
+                            <field name="partner_id"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Helpdesk Tickets" name="helpdesk_tickets">
+                    <field name="helpdesk_ticket_ids" nolabel="1">
+                        <tree decoration-muted="closed" open_form="1">
+                            <field name="number"/>
+                            <field name="name"/>
+                            <field name="team_id"/>
+                            <field name="stage_id"/>
+                            <field name="user_id"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Inquiry Lines" name="inquiry_lines" invisible="service_evaluation != 'inquiry'">
+                    <field name="inquiry_line_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="question"/>
+                            <field name="resolution"/>
+                            <field name="status"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Project Tasks" name="project_tasks">
+                    <field name="task_ids" nolabel="1">
+                        <tree decoration-muted="stage_id.fold" open_form="1">
+                            <field name="name"/>
+                            <field name="project_id"/>
+                            <field name="stage_id"/>
+                            <field name="user_ids" widget="many2many_tags"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Sale Orders" name="sale_orders">
+                    <field name="order_ids" nolabel="1">
+                        <tree decoration-muted="state in ('cancel', 'sent')" open_form="1">
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="state"/>
+                            <field name="amount_untaxed"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Sale Order Lines" name="sale_order_lines">
+                    <field name="sale_order_line_ids" nolabel="1" readonly="1">
+                        <tree>
+                            <field name="order_id"/>
+                            <field name="product_id"/>
+                            <field name="name"/>
+                            <field name="product_uom_qty"/>
+                            <field name="price_unit"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

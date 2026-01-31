@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_invite_form_crm_lead" model="ir.ui.view">
+        <field name="name">survey.invite.form.crm.lead</field>
+        <field name="model">survey.invite</field>
+        <field name="inherit_id" ref="survey.survey_invite_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='survey_id']" position="after">
+                <field name="crm_lead_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

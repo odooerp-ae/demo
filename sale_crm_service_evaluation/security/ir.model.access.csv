@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_inquiry_line_user,crm.inquiry.line.user,model_crm_inquiry_line,crm.group_crm_user,1,1,1,1
+access_crm_inquiry_line_manager,crm.inquiry.line.manager,model_crm_inquiry_line,crm.group_crm_manager,1,1,1,1
+access_survey_send_wizard_user,crm.lead.survey.send.wizard,sale_crm_service_evaluation.model_crm_lead_survey_send_wizard,,1,1,1,1
+access_helpdesk_ticket_wizard_user,crm.lead.helpdesk.ticket.wizard,sale_crm_service_evaluation.model_crm_lead_helpdesk_ticket_wizard,,1,1,1,1
+access_project_task_wizard_user,helpdesk.ticket.project.task.wizard,sale_crm_service_evaluation.model_helpdesk_ticket_project_task_wizard,,1,1,1,1
