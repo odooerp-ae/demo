@@ -4,7 +4,7 @@
 from odoo import api, fields, models
 
 
-class SurveyInvite(models.Model):
+class SurveyInvite(models.TransientModel):
     _inherit = "survey.invite"
 
     crm_lead_id = fields.Many2one(
