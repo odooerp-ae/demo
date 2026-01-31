@@ -2,10 +2,10 @@
 <odoo>
     <record id="helpdesk_ticket_stage_form_unsatisfactory" model="ir.ui.view">
         <field name="name">helpdesk.ticket.stage.form.unsatisfactory</field>
-        <field name="model">helpdesk.ticket.stage</field>
-        <field name="inherit_id" ref="helpdesk_mgmt.helpdesk_ticket_stage_form"/>
+        <field name="model">helpdesk.stage</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_stage_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='closed']" position="after">
+            <xpath expr="//sheet" position="inside">
                 <field name="is_unsatisfactory"/>
             </xpath>
         </field>

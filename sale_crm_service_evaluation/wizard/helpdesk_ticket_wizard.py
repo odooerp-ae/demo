@@ -16,7 +16,7 @@ class HelpdeskTicketWizard(models.TransientModel):
         ondelete="cascade",
     )
     team_id = fields.Many2one(
-        comodel_name="helpdesk.ticket.team",
+        comodel_name="helpdesk.team",
         string="Helpdesk Team",
         required=True,
     )

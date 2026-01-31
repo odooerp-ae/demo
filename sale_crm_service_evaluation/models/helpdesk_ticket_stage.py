@@ -4,8 +4,8 @@
 from odoo import fields, models
 
 
-class HelpdeskTicketStage(models.Model):
-    _inherit = "helpdesk.ticket.stage"
+class HelpdeskStage(models.Model):
+    _inherit = "helpdesk.stage"
 
     is_unsatisfactory = fields.Boolean(
         string="Unsatisfactory",

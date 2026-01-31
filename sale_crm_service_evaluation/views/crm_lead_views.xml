@@ -35,7 +35,7 @@
                 </page>
                 <page string="Helpdesk Tickets" name="helpdesk_tickets">
                     <field name="helpdesk_ticket_ids" nolabel="1">
-                        <tree decoration-muted="closed" open_form="1">
+                        <tree decoration-muted="stage_id.fold" open_form="1">
                             <field name="number"/>
                             <field name="name"/>
                             <field name="team_id"/>

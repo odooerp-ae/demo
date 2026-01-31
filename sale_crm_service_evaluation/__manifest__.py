@@ -15,7 +15,7 @@
         "crm",
         "survey",
         "project",
-        "helpdesk_mgmt",
+        "helpdesk",
     ],
     "data": [
         "security/ir.model.access.csv",
