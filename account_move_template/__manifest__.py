@@ -12,7 +12,12 @@
     "Akretion, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/account-financial-tools",
     "license": "AGPL-3",
-    "depends": ["account"],
+    "depends": ["account","sale_management",
+        "sale_crm",
+        "crm",
+        "survey",
+        "project",
+        "helpdesk",],
     "data": [
         "security/account_move_template_security.xml",
         "security/ir.model.access.csv",
