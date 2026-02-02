@@ -8,6 +8,14 @@ from odoo.exceptions import UserError
 class CrmLead(models.Model):
     _inherit = "crm.lead"
 
+    # Optional: satisfy views (e.g. from crm_product or Enterprise) that reference product_ids
+    product_ids = fields.Many2many(
+        comodel_name="product.product",
+        relation="crm_lead_product_rel",
+        string="Products",
+        help="Products linked to this lead (used by views that expect this field).",
+    )
+
     service_evaluation = fields.Selection(
         selection=[
             ("satisfied", "Satisfied"),
