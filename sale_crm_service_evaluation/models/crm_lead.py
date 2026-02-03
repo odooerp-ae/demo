@@ -62,10 +62,29 @@ class CrmLead(models.Model):
         help="Order lines from linked sale orders",
     )
 
+    # Payments linked to the sale orders of this lead (readonly in notebook)
+    payment_ids = fields.Many2many(
+        comodel_name="account.payment",
+        string="Payments",
+        compute="_compute_payment_ids",
+        help="Payments related to the sale orders of this lead",
+    )
+
     @api.depends("order_ids", "order_ids.order_line")
     def _compute_sale_order_line_ids(self):
         for lead in self:
             lead.sale_order_line_ids = lead.order_ids.mapped("order_line")
+
+    @api.depends("order_ids")
+    def _compute_payment_ids(self):
+        for lead in self:
+            if not lead.order_ids:
+                lead.payment_ids = self.env["account.payment"].browse()
+                continue
+            payments = self.env["account.payment"].search(
+                [("sale_order_id", "in", lead.order_ids.ids)]
+            )
+            lead.payment_ids = payments
 
     def action_send_survey_wizard(self):
         """Open wizard to select survey template and send."""

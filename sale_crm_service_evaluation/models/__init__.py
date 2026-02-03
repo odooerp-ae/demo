@@ -1,3 +1,4 @@
+from . import account_payment
 from . import crm_lead
 from . import crm_inquiry_line
 from . import sale_order

@@ -3,13 +3,14 @@
 
 {
     "name": "Sale CRM Service Evaluation",
-    "version": "17.0.1.0.0",
+    "version": "17.0",
     "category": "CRM",
     "summary": "Service evaluation workflow: CRM from Sale Order with survey, inquiry, helpdesk integration",
     "author": "Odoo Community",
     "website": "https://github.com/OCA/",
     "license": "AGPL-3",
     "depends": [
+        "account",
         "sale_management",
         "sale_crm",
         "crm",
@@ -19,6 +20,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "views/account_payment_views.xml",
         "views/crm_lead_views.xml",
         "views/crm_inquiry_line_views.xml",
         "views/helpdesk_ticket_views.xml",
